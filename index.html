@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравления с 8 Марта</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            padding: 20px;
+            color: white;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 3s ease-out;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            text-align: center;
+            cursor: pointer;
+            animation: slideUp 1s ease-out;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        .card:active {
+            transform: scale(1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .card img:hover {
+            transform: scale(1.1);
+        }
+        h2 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #ff69b4;
+            animation: fadeIn 2s ease-out;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            animation: fadeIn 2.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Мобильная адаптация */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            .card {
+                width: 250px;
+            }
+            .container {
+                gap: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+            .card {
+                width: 200px;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>С 8 Марта!</h1>
+    <div class="container">
+        <div class="card" onclick="showMessage('mom')">
+            <img src="Mom.jpg" alt="Мама">
+            <h2>Маме</h2>
+            <p id="momText">С 8 Марта, мама! Пусть этот день принесёт тебе счастье, улыбки и тепло. Ты лучшая!</p>
+        </div>
+        <div class="card" onclick="showMessage('grandma')">
+            <img src="Grandma.jpg" alt="Бабушка">
+            <h2>Бабушке</h2>
+            <p id="grandmaText">Дорогая бабушка, пусть радость и здоровье всегда будут с тобой. С праздником весны!</p>
+        </div>
+        <div class="card" onclick="showMessage('sister')">
+            <img src="Sister.jpg" alt="Надя">
+            <h2>Наде</h2>
+            <p id="sisterText">Милая Надя, пусть в твоей жизни будет много счастья, веселья и радости!</p>
+        </div>
+        <div class="card" onclick="showMessage('vika')">
+            <img src="Vika.jpg" alt="Вика">
+            <h2>Вике</h2>
+            <p id="vikaText">Вика, с праздником весны! Пусть в жизни будет больше чудес, любви и улыбок!</p>
+        </div>
+    </div>
+
+    <script>
+        function showMessage(person) {
+            let message = "";
+            if (person === 'mom') {
+                message = `Мама, ты — мой источник вдохновения! Пусть каждый день будет наполнен только счастьем. Ты заслуживаешь лучшего!`;
+            } else if (person === 'grandma') {
+                message = `Бабушка, твоя доброта и забота согревают сердце. Пусть этот день подарит тебе радость и множество приятных сюрпризов.`;
+            } else if (person === 'sister') {
+                message = `Надя, твоя улыбка делает мир ярче. Пусть впереди будет много чудес, радости и незабываемых моментов!`;
+            } else if (person === 'vika') {
+                message = `Вика, ты — это свет в этом мире! Пусть твоя жизнь будет полна счастья, любви и тепла.`;
+            }
+
+            document.getElementById(person + "Text").innerHTML = message;
+        }
+    </script>
+</body>
+</html>
